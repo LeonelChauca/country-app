@@ -1,0 +1,10 @@
+<country-search-input
+  placeholder="Buscar por capital"
+  (value)="query.set($event)"
+/>
+
+@if (countryResource.error() || !countryResource.hasValue()) {
+<p>Error loading countries</p>
+} @else {
+<country-list [countries]="countryResource.value()" />
+}
